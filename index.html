@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Men's Fashion Hub</title>
+    <style>
+   
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Arial", sans-serif;
+      }
+
+      body {
+        background: #f8f9fa;
+      }
+
+      /* Navigation Styles */
+      .navbar {
+        height: 70px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        padding: 1rem 2%;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        width: 100%;
+
+        z-index: 1000;
+      }
+
+      .logo img {
+        height: 4rem;
+        transition: transform 0.3s ease;
+      }
+
+      .logo img:hover {
+        transform: scale(1.05);
+      }
+
+      #nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      nav-links li {
+        position: relative;
+        padding: 0.5rem 0;
+        cursor: pointer;
+        color: #000000;
+        font-weight: 500;
+        font-family: Georgia, "Times New Roman", Times, serif;
+      }
+
+      .nav-links li::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #2563eb;
+        transition: width 0.3s ease;
+      }
+
+      .nav-links li:hover::after {
+        width: 100%;
+      }
+
+      .login-btn {
+        background: #586a5c;
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .login-btn:hover {
+        background: #696c73;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Hero Section */
+      .hero {
+        display: flex;
+        justify-content: space-between;
+        min-height: 90vh;
+        align-items: center;
+        padding: 8rem 5% 4rem;
+        background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+      }
+
+      .right img {
+        width: 500px;
+        height: 500px;
+        object-fit: contain;
+
+        margin: 0 auto;
+        transition: none;
+      }
+
+      .hero-content {
+        flex: 1;
+        max-width: 600px;
+      }
+
+      .hero-content h1 {
+        font-size: 3.5rem;
+        color: #dc2626;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+      }
+
+      .hero-content p {
+        font-size: 1.1rem;
+        color: #4b5563;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+      }
+
+      .cta-btn {
+        background: #7c3aed;
+        color: white;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 30px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .cta-btn:hover {
+        background: #1c1c1d;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(124, 58, 237, 0.3);
+      }
+
+      .hero-image {
+        flex: 1;
+        max-width: 600px;
+        animation: float 3s ease-in-out infinite;
+      }
+
+      .hero-image img {
+        width: 100%;
+        height: auto;
+        max-height: 80vh;
+        object-fit: contain;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(20);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .hero {
+          flex-direction: column;
+          padding-top: 6rem;
+        }
+
+        .hero-content {
+          text-align: center;
+          margin-bottom: 3rem;
+        }
+
+        .hero-content h1 {
+          font-size: 2.5rem;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+       
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="newlogo.png" alt="Brand Logo" />
+      </div>
+      <ul id="nav-links">
+        <li>Home</li>
+        <li>About</li>
+        <li>Products</li>
+        <li>Services</li>
+      </ul>
+      <button class="login-btn">LOGIN</button>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Elevate Your Style with Premium Men's Fashion</h1>
+        <p>
+          Discover curated collections that blend modern trends with timeless
+          elegance. Perfect for every occasion and personal style.
+        </p>
+        <button class="cta-btn">Explore Collection</button>
+      </div>
+      <div class="right">
+        <img src="finalmen.png" alt="Fashion Model" id="image" />
+      </div>
+     
+    </section>
+
+    <script>
+      const images = ["bs.png", "realmen.png", "secondmen.png"];
+      let currentIndex = 0;
+      const imgElement = document.getElementById("image");
+
+      function changeImage() {
+        currentIndex = (currentIndex + 1) % images.length;
+        imgElement.style.opacity = 0;
+        setTimeout(() => {
+          imgElement.src = images[currentIndex];
+          imgElement.style.opacity = 1;
+        }, 500);
+      }
+
+      setInterval(changeImage, 3000);
+    </script>
+  </body>
+</html>
